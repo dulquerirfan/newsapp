@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News app</title>
+    
+    <style>
+        body{
+            background-color: antiquewhite;
+            margin:0px;
+        }
+        #header{
+            display: flex;
+             margin: 0px;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+        form{
+            margin-top: 30px;
+            margin-left: 40%;
+        }
+        #search{
+            width: 350px;
+            height: 20px;
+            border-radius: 2px;
+            border: none;
+        }
+        #button{
+            border: none;
+            background-color: darkgray;
+            height: 20px;
+        }
+        #button:hover{
+            background-color:azure;
+        }
+        h2{
+            text-transform: uppercase;
+            margin: 10px 40%;
+            font-size: 40px;   
+        }
+        img{
+            height:20%;
+            width:30%;
+            
+        }
+        #article{
+            border: solid black 1px;
+            background-color: ghostwhite;
+            display: grid;
+            height: 50%;
+            width: 50%;
+            margin-left: 20%;
+            padding: 5%;
+        }
+        a{
+            text-decoration:none;
+            color:black;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>News app</h1>
+        <form action="">
+        <input type="serach" id='search'placeholder="looking for anything??">
+        <input type="button" value="search"id="button">
+    </form>
+    </div>
+
+   <div id="posts">
+       
+       <h2>headlines</h2>
+       
+      <%(articles.articles).forEach(element => { %>
+        <div id="article">
+        <a href=<%- JSON.stringify(element.url) %> >
+       <h3><%- JSON.stringify(element.title)  %> </h3>
+       <img src=<%- JSON.stringify(element.urlToImage) %>  alt="image">
+       <p><%- JSON.stringify(element.content)  %> </p>
+       <p>source:<%- JSON.stringify(element.author) %> </p>
+        </a>
+       <% }) %>
+    </div>
+    </div> 
+     
+    
+
+</body>
+</html>
